@@ -1,5 +1,5 @@
 const ui = new UI()
-console.log(ui)
+const ls = new LS()
 
 const form = document.querySelector('#book-form')
 form.addEventListener('submit', addBook)
@@ -12,6 +12,7 @@ function addBook(event){
 
     const book = new Book(title, author, isbn)
     ui.addBook(book)
+    ls.addBook(book)
 
     ui.clearInputData('#title')
     ui.clearInputData('#author')
