@@ -5,6 +5,10 @@ class LS {
         this.setData('books_oop', books)
     }
 
+    getBooks(){
+        return this.getData('books_oop')
+    }
+
     getData(name){
         let data // array for user input
         if(localStorage.getItem(name) === null){
