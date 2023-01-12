@@ -6,6 +6,18 @@ form.addEventListener('submit', addBook)
 
 document.addEventListener('DOMContentLoaded', getBooks)
 
+const booksTable = document.querySelector('#books')
+booksTable.addEventListener('click', deleteBook)
+
+function deleteBook(event){
+    if(event.target.textContent === 'X'){
+        if(confirm('Are you sure you want to delete this book?')){
+            const deletedBook = ui.deleteBook(event.target)
+            ls.deleteBook(deletedBook)
+        }
+    }
+}
+
 function getBooks(){
     let books = ls.getBooks()
     books.forEach(function(book){

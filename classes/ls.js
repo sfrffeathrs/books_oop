@@ -9,6 +9,18 @@ class LS {
         return this.getData('books_oop')
     }
 
+    deleteBook(book){
+        let books = this.getData('books_oop')
+        books.forEach(function(bookFromLS, index){
+            if(bookFromLS.title === book.title &&
+                bookFromLS.author === book.author &&
+                bookFromLS.isbn === book.isbn){
+                books.splice(index, 1)
+            }
+        })
+        this.setData('books_oop', books)
+    }
+
     getData(name){
         let data // array for user input
         if(localStorage.getItem(name) === null){
